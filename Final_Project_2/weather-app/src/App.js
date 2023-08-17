@@ -10,11 +10,6 @@ const api = {
   base: "https://api.openweathermap.org/data/2.5/"
 }
 
-const weatherType = {
-  "Clouds": faCloud,
-  "Rain": faCloudRain
-}
-
 
 function App() {
   const navigate = useNavigate(); // Hook for navigation
@@ -42,19 +37,6 @@ function App() {
     }
   }
 
-
-
-  const dateBuilder = (d) => {
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-    let day = days[d.getDay()];
-    let date = d.getDate();
-    let month = months[d.getMonth()];
-    let year = d.getFullYear();
-
-    return `${day} ${date} ${month} ${year}`
-  }
   return (
     <div className="app warm">
       <main>

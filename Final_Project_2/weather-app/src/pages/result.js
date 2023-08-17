@@ -14,8 +14,6 @@ const api = {
     "Rain": faCloudRain
   }
 
-
-
 export default function Result()
 {
     

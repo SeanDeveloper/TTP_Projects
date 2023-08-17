@@ -9,7 +9,7 @@ body {
 }
 
 .app {
-  background-image: url('assets/4c8b186ca3d801525b35fb0e6cdcbeee.jpeg');
+  background-image: url('assets/third.jpg');
   background-size: cover;
   background-position: bottom;
   transition: 0.4s ease-out;
@@ -52,8 +52,6 @@ main {
   transition: 0.4s ease;
 }
 
-
-
 .search-box .search-bar:focus{
   background-color: rgba(255, 255, 255, 0.75);
 }
@@ -62,14 +60,12 @@ main {
   background-color: rgba(255, 255, 255, 0.75);
 }
 
-
-
 .weather-box {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center horizontally */
-  justify-content: center; /* Center vertically */
-  height: 100vh; /* Make sure the box takes up the full viewport height */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .weather-icon {
@@ -87,12 +83,9 @@ main {
 }
 
 .link a {
-
   color: #fff;
-  text-decoration: none; /* Removing underline from link */
+  text-decoration: none;
 }
-
-
 
 .location {
   color: #FFF;
@@ -101,33 +94,21 @@ main {
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 }
 
-.date,
-.temperature,
-.weather {
+.date, .temperature, .weather {
   color: #FFF;
   font-size: 20px;
   font-weight: 280;
   text-align: center;
 }
 
-
-/* Define the fade-out animation */
 @keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .fade-out {
@@ -163,17 +144,15 @@ main {
 }
 
 .navbar li a {
-  text-decoration: none; /* Removing underline from links */
-  color: inherit; /* Inherit the color from the parent */
+  text-decoration: none;
+  color: inherit;
 }
-
-
 
 .ProjectInfo {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Set the container height to full viewport height */
+  height: 100vh;
 }
 
 .ProjectInfo p {
