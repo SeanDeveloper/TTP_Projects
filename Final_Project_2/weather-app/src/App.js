@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCloud } from '@fortawesome/free-solid-svg-icons'
-import { faCloudRain } from '@fortawesome/free-solid-svg-icons'
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloud, faCloudRain } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
+import { useWeather } from './global';
+
 
 const api = {
   key: "117f2c5834f00373df4ace679e8aa5a6",
@@ -15,12 +17,16 @@ const weatherType = {
 
 
 function App() {
+  const navigate = useNavigate(); // Hook for navigation
+
+
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
   const [weatherBoxFadeOut, setWeatherBoxFadeOut] = useState(false);
-
+  const { setResult } = useWeather(); // Get the setResult function from the context
   const search = evt => {
     if (evt.key === "Enter") {
+
       setWeatherBoxFadeOut(true);
       fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
       .then(res => res.json())
@@ -28,8 +34,10 @@ function App() {
         setWeather(result);
         setWeatherBoxFadeOut(false);
         setQuery('');
-        // console.log(result);
-        console.log(weatherType["Clouds"]);
+      
+        setResult(result);
+        navigate('/result');
+
       });
     }
   }
@@ -48,22 +56,8 @@ function App() {
     return `${day} ${date} ${month} ${year}`
   }
   return (
-    <div className={(typeof weather.main != "undefined")
-    ? ((weather.main.temp > 16)
-    ? 'app warm'
-    : 'app')
-
-    : 'app'}>
+    <div className="app warm">
       <main>
-
-      {/* <nav>
-            <ul>
-                <li>Home</li>
-                <li>Info</li>
-                <li>Contact</li>
-            </ul>
-        </nav> */}
-
         <div className="search-box">
           <input
             type="text"
@@ -74,17 +68,6 @@ function App() {
             onKeyDown={search}
             />
         </div>
-        
-        {weather && weather.main && (
-          <div className={`weather-box ${weatherBoxFadeOut ? 'fade-out' : 'fade-in'}`}>
-            <div className="weather-icon"><FontAwesomeIcon icon={weatherType[weather.weather[0].main]} /></div>
-            <div className="location">{weather.name}, {weather.sys && weather.sys.country}</div>
-            <div className="date">{dateBuilder(new Date())}</div>
-            <div className="tempature">{Math.round(weather.main.temp)}°</div>
-            <div className="weather">{weather.weather && weather.weather[0].main}</div>
-          </div>
-        )}
-
       </main>
     </div>
   );

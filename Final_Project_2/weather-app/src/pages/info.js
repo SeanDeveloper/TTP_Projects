@@ -36,27 +36,11 @@ export default function Result()
       return `${day} ${date} ${month} ${year}`
     }
     return (
-      <div className={(typeof weather.main != "undefined")
-      ? ((weather.main.temp > 16)
-      ? 'app warm'
-      : 'app')
-  
-      : 'app'}>
+      <div className="app cold">
         <main>
-
-          {result && result.main && (
-            <div className={`weather-box ${weatherBoxFadeOut ? 'fade-out' : 'fade-in'}`}>
-              <div className="weather-icon"><FontAwesomeIcon icon={weatherType[result.weather[0].main]} /></div>
-              <div className="location">{result.name}, {result.sys && result.sys.country}</div>
-              <div className="date">{dateBuilder(new Date())}</div>
-              <div className="temperature">{Math.round(result.main.temp)}°</div>
-              <div className="weather">{result.weather && result.weather[0].main}</div>
-              <a className='link'><Link to="/">⬅Search For Another City</Link></a>
-            </div>
-          )}
-
-          
-  
+        <div className="ProjectInfo">
+        <p>This project was made possible with ReactJS and OpenWeatherMap API for Tech Talent Pipeline from Sean Cedano with much ♥</p>
+        </div>
         </main>
       </div>
     );
