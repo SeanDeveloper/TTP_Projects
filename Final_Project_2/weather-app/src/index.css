@@ -50,19 +50,25 @@ main {
 
 
 
-.search-box .search-bar:focus {
+.search-box .search-bar:focus{
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.search-bar:hover {
   background-color: rgba(255, 255, 255, 0.75);
 }
 
 
-.location-box .weather-icon {
+
+.weather-box .weather-icon {
   color: #FFF;
   font-size: 120px;
   text-align: center;
+  transition: 0.4s ease;
   
 }
 
-.location-box .location {
+.weather-box .location {
   color: #FFF;
   font-size: 30px;
   font-weight: 500;
@@ -70,7 +76,7 @@ main {
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 }
 
-.location-box .date {
+.weather-box .date {
   color: #FFF;
   font-size: 20px;
   font-weight: 280;
@@ -91,3 +97,56 @@ main {
   font-weight: 280;
   text-align: center;
 }
+
+
+/* Define the fade-out animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.4s ease;
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease;
+}
+
+/* navbar.css */
+.navbar {
+  background-color: transparent;
+  color: #fff;
+  font-family: monospace sans-serif !important;
+  font-size: 22px;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.navbar li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
